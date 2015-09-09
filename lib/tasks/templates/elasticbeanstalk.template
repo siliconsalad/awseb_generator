@@ -20,6 +20,7 @@ OptionSettings:
   aws:autoscaling:launchconfiguration:
     IamInstanceProfile: aws-elasticbeanstalk-ec2-role
     EC2KeyName: {{pem_filename}}
+    InstanceType: {{ec2_instance_type}}
   aws:rds:dbinstance:
     DBDeletionPolicy: Snapshot
     DBEngineVersion: 5.6.23
