@@ -1,0 +1,46 @@
+Extensions:
+  RDS.EBConsoleSnippet:
+    SourceLocation: https://s3.amazonaws.com/elasticbeanstalk-env-resources-eu-west-1/eb_snippets/rds/rds.json
+    Order: null
+EnvironmentConfigurationMetadata:
+  Description:  'ElasticBeanstalk environment created for a Rails Application'
+  DateModified: '{{updated_at}}'
+  DateCreated:  '1441631763000'
+AWSConfigurationTemplateVersion: 1.1.0.0
+EnvironmentTier:
+  Name: WebServer
+  Type: Standard
+SolutionStack: {{solution_stack}}
+OptionSettings:
+  aws:elb:loadbalancer:
+    CrossZone: true
+  aws:elasticbeanstalk:command:
+    BatchSize: '30'
+    BatchSizeType: Percentage
+  aws:autoscaling:launchconfiguration:
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    EC2KeyName: {{pem_filename}}
+  aws:rds:dbinstance:
+    DBDeletionPolicy: Snapshot
+    DBEngineVersion: 5.6.23
+    DBInstanceClass: {{db_instance_type}}
+    DBEngine: mysql
+    MultiAZDatabase: {{db_multi_az}}
+    DBAllocatedStorage: '{{db_storage}}'
+    DBUser: {{db_user}}
+    DBPassword: {{db_password}}
+  aws:autoscaling:asg:
+    MinSize: '{{autoscaling_min_size}}'
+    MaxSize: '{{autoscaling_max_size}}'
+    Availability Zones: Any
+    Custom Availability Zones: null
+    Cooldown: '360'
+  aws:elb:policies:
+    ConnectionDrainingEnabled: true
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateType: Health
+    RollingUpdateEnabled: true
+  aws:elb:healthcheck:
+    Interval: '30'
+  aws:elasticbeanstalk:application:environment:
+    SECRET_KEY_BASE: {{rails_secret}}
