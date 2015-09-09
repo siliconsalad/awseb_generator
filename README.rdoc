@@ -1,4 +1,4 @@
-= AwsebGenerator
+= AWS ElasticBeanstalk Generator
 
 This gem generates AWS Configuration Template to create ElasticBeanstalk Environment. You can set some options (RDS instance type, EC2 instance Type...) or add ElastiCache clusters for example.
 
