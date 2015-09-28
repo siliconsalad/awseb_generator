@@ -11,12 +11,11 @@ namespace :awseb do
 
     templates_path                 = File.dirname(__FILE__) + '/templates/'
     elasticbeanstalk_template_path = "#{templates_path}elasticbeanstalk.template"
-    elasticache_template_path      = "#{templates_path}elasticache.template"
     template_option_values_path    = "#{templates_path}template_option_values.rb"
 
     application_name               = Rails.application.class.to_s.split('::').first
 
-    unless File.exist?(elasticbeanstalk_template_path) && File.exist?(elasticache_template_path) && File.exist?(template_option_values_path)
+    unless File.exist?(elasticbeanstalk_template_path) && File.exist?(template_option_values_path)
       puts "Missing templates..."
       exit
     end
