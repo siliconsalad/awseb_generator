@@ -1,5 +1,0 @@
-  aws:elasticbeanstalk:customoption:
-    CacheNodeType : {{instance_type}}
-    NumCacheNodes : {{nodes_number}}
-    Engine : {{engine}}
-    CachePort : {{port}}

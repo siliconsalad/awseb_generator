@@ -2,12 +2,6 @@ TEMPLATE_OPTION_VALUES = {
   updated_at: {
     value: Time.now.to_i * 1000
   },
-  redis_engine: {
-    value: 'redis'
-  },
-  memcached_engine: {
-    value: 'memcached'
-  },
   solution_stack: {
     values: [
       '64bit Amazon Linux 2015.03 v2.0.0 running Ruby 2.2 (Puma)',
@@ -122,74 +116,6 @@ TEMPLATE_OPTION_VALUES = {
     default: 2,
     min: 1,
     max: 20
-  },
-  memcached_instance_type: {
-    values: [
-      'cache.m3.medium',
-      'cache.m3.large',
-      'cache.m3.xlarge',
-      'cache.m3.2xlarge',
-      'cache.r3.large',
-      'cache.r3.xlarge',
-      'cache.r3.2xlarge',
-      'cache.r3.4xlarge',
-      'cache.r3.8xlarge',
-      'cache.t2.micro',
-      'cache.t2.small',
-      'cache.t2.medium',
-      'cache.m1.small',
-      'cache.m1.medium',
-      'cache.m1.large',
-      'cache.m1.xlarge',
-      'cache.m2.xlarge',
-      'cache.m2.2xlarge',
-      'cache.m2.4xlarge',
-      'cache.c1.xlarge'
-    ]
-  },
-  memcached_nodes_number: {
-    type: 'Integer',
-    default: 1,
-    min: 1,
-    max: 5
-  },
-  memcached_port: {
-    type: 'Integer',
-    default: 11211
-  },
-  redis_instance_type: {
-    values: [
-      'cache.m3.medium',
-      'cache.m3.large',
-      'cache.m3.xlarge',
-      'cache.m3.2xlarge',
-      'cache.r3.large',
-      'cache.r3.xlarge',
-      'cache.r3.2xlarge',
-      'cache.r3.4xlarge',
-      'cache.r3.8xlarge',
-      'cache.t2.micro',
-      'cache.t2.small',
-      'cache.t2.medium',
-      'cache.m1.small',
-      'cache.m1.medium',
-      'cache.m1.large',
-      'cache.m1.xlarge',
-      'cache.m2.xlarge',
-      'cache.m2.2xlarge',
-      'cache.m2.4xlarge',
-      'cache.c1.xlarge'
-    ]
-  },
-  redis_nodes_number: {
-    type: 'Integer',
-    default: 1,
-    min: 1,
-    max: 5
-  },
-  redis_port: {
-    type: 'Integer',
-    default: 6379
   },
   rails_secret: {
     default: SecureRandom.hex(64)

@@ -63,9 +63,6 @@ namespace :awseb do
       end
     end
 
-    elasticache_questions('redis', elasticache_template_path, configuration_template_file)
-    elasticache_questions('memcached', elasticache_template_path, configuration_template_file)
-
     configuration_template_file.close
   end
 end
