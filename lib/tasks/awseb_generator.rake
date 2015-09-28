@@ -39,7 +39,7 @@ namespace :awseb do
 
     File.open(elasticbeanstalk_template_path).each do |line|
       ## Line contains variable to replace
-      if line.match(/{{([a-zA-Z\_]*)}}/i)
+      if line.match(/{{([a-zA-Z0-9\_]*)}}/i)
         result                  = ''
         variable_name           = line.match(/{{([a-zA-Z\-\_]*)}}/i)[0]
         cleaned_variable_name   = variable_name.gsub(/({|})/i, '')
