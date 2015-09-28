@@ -39,9 +39,11 @@ namespace :awseb do
 
     File.open(elasticbeanstalk_template_path).each do |line|
       ## Line contains variable to replace
-      if line.match(/{{([a-zA-Z0-9\_]*)}}/i)
+      regex = /{{([a-zA-Z0-9\-\_]*)}}/i
+      if line.match(regex)
         result                  = ''
-        variable_name           = line.match(/{{([a-zA-Z\-\_]*)}}/i)[0]
+        variable_name           = line.match(regex)[0]
+        puts variable_name
         cleaned_variable_name   = variable_name.gsub(/({|})/i, '')
         formatted_variable_name = cleaned_variable_name.gsub(/\_/i, ' ')
 
@@ -56,7 +58,7 @@ namespace :awseb do
           result = ask "#{formatted_variable_name} ? "
         end
 
-        configuration_template_file.puts line.gsub(/{{([a-zA-Z\-\_]*)}}/i, result.to_s)
+        configuration_template_file.puts line.gsub(regex, result.to_s)
       else
         configuration_template_file.puts line
       end
