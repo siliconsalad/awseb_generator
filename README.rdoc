@@ -2,4 +2,6 @@
 
 This gem generates AWS Configuration Template to create ElasticBeanstalk Environment. You can set some options (RDS instance type, EC2 instance Type...).
 
+To generate the template, launch the fllowing command : `rake awseb:generate_config_template`.
+
 This project uses MIT-LICENSE.
