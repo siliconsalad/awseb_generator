@@ -43,7 +43,6 @@ namespace :awseb do
       if line.match(regex)
         result                  = ''
         variable_name           = line.match(regex)[0]
-        puts variable_name
         cleaned_variable_name   = variable_name.gsub(/({|})/i, '')
         formatted_variable_name = cleaned_variable_name.gsub(/\_/i, ' ')
 
